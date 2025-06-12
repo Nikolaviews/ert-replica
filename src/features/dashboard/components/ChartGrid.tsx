@@ -14,15 +14,16 @@ interface ChartGridProps {
 
 const ChartGrid: React.FC<ChartGridProps> = ({ charts }) => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {charts.map((chart, index) => {
         if (chart.type === 'horizontal' && chart.data) {
           return <HorizontalBarChart key={index} title={chart.title} data={chart.data} />;
-        }
-        if (chart.type === 'vertical' && chart.data) {
+        } else if (chart.type === 'vertical' && chart.data) {
           return <VerticalBarChart key={index} title={chart.title} data={chart.data} />;
+        } else if (chart.type === 'none') {
+          return <NoDataChart key={index} title={chart.title} />;
         }
-        return <NoDataChart key={index} title={chart.title} />;
+        return null;
       })}
     </div>
   );

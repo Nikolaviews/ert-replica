@@ -13,7 +13,7 @@ const TabbedSection = () => {
     return (
         <div className="w-full">
             <Tab.Group>
-                <Tab.List className="flex space-x-2 border-b border-gray-200 mb-1 bg-white">
+                <Tab.List className="flex space-x-2 border-b border-gray-200 mb-2 bg-white">
                     {tabData.map((tab, idx) => (
                         <Tab key={idx} as={Fragment}>
                             {({ selected }) => (
