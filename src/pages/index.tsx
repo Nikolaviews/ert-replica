@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 export default function Home() {
   const router = useRouter();
   useEffect(() => {
-    router.push('/dashboard');
+    router.push('');
   }, [router]);
 
   return null;
