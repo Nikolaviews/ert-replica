@@ -1,0 +1,146 @@
+[
+  {
+    "taskCategory": "Test case document deep dive and BDD updates, documentation",
+    "category": "Test Baselining",
+    "storyId": "484745, 484740",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "Legacy Baseline Testing - Integration Testcases",
+    "category": "Test Baselining",
+    "storyId": "488026",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "Legacy Baseline Testing - UAT Testcases",
+    "category": "Test Baselining",
+    "storyId": "488024",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "Legacy Baseline Testing - Module Testcases",
+    "category": "Test Baselining",
+    "storyId": "484745, 484740",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "Legacy Baseline Testing - System Testcases",
+    "category": "Test Baselining",
+    "storyId": "484745, 484740",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "Automation execution iteration 2 development",
+    "category": "Test Automation",
+    "storyId": "491908",
+    "jobCode": "FFR-PartC > Java-EngineeringSupport >Test-Automation"
+  },
+  {
+    "taskCategory": "legacy macumba setup in cloud pc",
+    "category": "Cloud Formation",
+    "storyId": "486585",
+    "jobCode": "FFP-PartA > JAVA-IaC-CloudFormation"
+  },
+  {
+    "taskCategory": "macumba environment+library update and AWS launch",
+    "category": "Cloud Formation",
+    "storyId": "486585",
+    "jobCode": "FFP-PartA > JAVA-IaC-CloudFormation"
+  },
+  {
+    "taskCategory": "SWAN environment update and AWS deployment",
+    "category": "Cloud Formation",
+    "storyId": "486585",
+    "jobCode": "FFP-PartA > JAVA-IaC-CloudFormation"
+  },
+  {
+    "taskCategory": "AWS EC2 Replatform of SWAN & Macumba (A) [Cloud formation]",
+    "category": "Cloud Formation",
+    "storyId": "486585",
+    "jobCode": "FFP-PartA > JAVA-IaC-CloudFormation"
+  },
+  {
+    "taskCategory": "bayer daily standup",
+    "category": "Meetings",
+    "storyId": "484769",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "TSRI HQ & India daily standup",
+    "category": "Meetings",
+    "storyId": "484769",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "india daily standup",
+    "category": "Meetings",
+    "storyId": "484769",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "other bayer meetings",
+    "category": "Meetings",
+    "storyId": "484769",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "bayer sprint meeting",
+    "category": "Meetings",
+    "storyId": "484769",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "onboarding tasks",
+    "category": "Onboarding",
+    "storyId": "484769",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "training",
+    "category": "Onboarding",
+    "storyId": "484769",
+    "jobCode": "FFR-PartA > Baseline-testing"
+  },
+  {
+    "taskCategory": "Log Refactoring",
+    "category": "Refactoring",
+    "storyId": "488035",
+    "jobCode": "FFP-PartB > Java-Validated-code-compilation-and-deployment"
+  },
+  {
+    "taskCategory": "logger refactoring analysis for cloud watch",
+    "category": "Refactoring",
+    "storyId": "488031",
+    "jobCode": "FFP-PartB > Java-Validated-code-compilation-and-deployment"
+  },
+  {
+    "taskCategory": "AWS Access",
+    "category": "Refactoring",
+    "storyId": "488045",
+    "jobCode": "FFP-PartB > Java-Validated-code-compilation-and-deployment"
+  },
+  {
+    "taskCategory": "cloud watch config",
+    "category": "Refactoring",
+    "storyId": "488031",
+    "jobCode": "FFP-PartB > Java-Validated-code-compilation-and-deployment"
+  },
+  {
+    "taskCategory": "AWS Smoke Testing",
+    "category": "Smoke Testing",
+    "storyId": "484740/484745",
+    "jobCode": "FFR-PartA >> C-EngineeringSupport >> C-additional-validation-and-Smoke-Testing"
+  },
+  {
+    "taskCategory": "AWS Smoke Testing (Prabhu & Bhavanya will log under this)",
+    "category": "Smoke Testing",
+    "storyId": "484740/484745",
+    "jobCode": "FFP-PartA >> Java SmokeTesting"
+  },
+  {
+    "taskCategory": "Performance check",
+    "category": "Performance Check",
+    "storyId": "491911",
+    "jobCode": "bayer-sce-modernization-ph1 › FFR-PARTC › JAVA-EngineeringSupport > CustomRefactoring"
+  }
+]
