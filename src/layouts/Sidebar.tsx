@@ -73,7 +73,8 @@ const menuData = [
 ]
 
 const Sidebar = () => {
-  const [open, setOpen] = useState<{ [key: string]: boolean }>({})
+   const [open, setOpen] = useState<{ [key: string]: boolean }>({})
+  const [collapsed, setCollapsed] = useState(false)
   const pathname = usePathname()
 
   const toggle = (section: string) => {
@@ -92,31 +93,50 @@ const Sidebar = () => {
 
 
   return (
-    <aside className="w-50 bg-[#052148] text-white min-h-screen p-2 flex flex-col justify-between">
+    <aside
+      className={`${
+        collapsed ? 'w-16' : 'w-52'
+      } bg-[#052148] text-white min-h-screen p-2 flex flex-col justify-between transition-all duration-300`}
+    >
       <div>
         <ul className="text-xs font-medium">
+          {/* Logo */}
+          <div className="mb-4 px-4 py-3 flex items-center justify-center border-b border-blue-900">
+            <img
+              src="/logo.svg"
+              alt="Logo"
+              className={`h-10 w-auto transition-all duration-300 ${collapsed ? 'scale-75' : ''}`}
+            />
+          </div>
+
           {menuData.map((section, index) => {
             const isActiveParent = section.path && pathname.startsWith(section.path)
 
             return (
-              <li key={index}>
+              <li key={index} className="relative group">
                 {section.collapsible ? (
                   <>
                     <button
-                      onClick={() => {
-                        if (!section.collapsible && section.path) return // Let non-collapsibles work normally
-                        toggle(section.title)
-                      }}
-                      className={`flex items-center w-full hover:bg-[#0d3164] px-2 py-2 rounded ${isActiveParent ? 'bg-[#173e73]' : ''
-                        }`}
+                      onClick={() => toggle(section.title)}
+                      className={`flex items-center w-full hover:bg-[#0d3164] px-2 py-2 rounded ${
+                        isActiveParent ? 'bg-[#173e73]' : ''
+                      }`}
+                      title={section.title}
                     >
-                      <span className="mr-2">{section.icon}</span>
-                      <span className="flex-1 text-left">{section.title}</span>
-                      {section.collapsible && (
-                        <span>{open[section.title] ? <FaChevronDown size={14} /> : <FaChevronRight size={14} />}</span>
+                      <span className="text-base">{section.icon}</span>
+                      {!collapsed && (
+                        <>
+                          <span className="ml-2 flex-1 text-left">{section.title}</span>
+                          <span>
+                            {open[section.title] ? (
+                              <FaChevronDown size={14} />
+                            ) : (
+                              <FaChevronRight size={14} />
+                            )}
+                          </span>
+                        </>
                       )}
                     </button>
-
 
                     {open[section.title] && section.items && (
                       <ul className="ml-6 mt-1 space-y-1 text-gray-100 text-xs font-normal">
@@ -126,10 +146,13 @@ const Sidebar = () => {
                             <li key={idx}>
                               <Link
                                 href={item.path}
-                                className={`hover:bg-[#173e73] rounded px-2 py-1 flex items-center ${isActiveChild ? 'bg-[#173e73]' : ''}`}
+                                title={item.title}
+                                className={`hover:bg-[#173e73] rounded px-2 py-1 flex items-center ${
+                                  isActiveChild ? 'bg-[#173e73]' : ''
+                                }`}
                               >
-                                <span className="mr-2">{item.icon}</span>
-                                {item.title}
+                                <span className="mr-2 text-base">{item.icon}</span>
+                                {!collapsed && <span>{item.title}</span>}
                               </Link>
                             </li>
                           )
@@ -138,20 +161,16 @@ const Sidebar = () => {
                     )}
                   </>
                 ) : (
-                  section.path ? (
-                    <Link
-                      href={section.path}
-                      className={`hover:bg-[#0d3164] px-2 py-2 rounded flex items-center ${pathname === section.path ? 'bg-[#173e73]' : ''}`}
-                    >
-                      <span className="mr-2">{section.icon}</span>
-                      {section.title}
-                    </Link>
-                  ) : (
-                    <span className="hover:bg-[#0d3164] px-2 py-2 rounded flex items-center cursor-pointer">
-                      <span className="mr-2">{section.icon}</span>
-                      {section.title}
-                    </span>
-                  )
+                  <Link
+                    href={section.path || '#'}
+                    title={section.title}
+                    className={`hover:bg-[#0d3164] px-2 py-2 rounded flex items-center ${
+                      pathname === section.path ? 'bg-[#173e73]' : ''
+                    }`}
+                  >
+                    <span className="text-base">{section.icon}</span>
+                    {!collapsed && <span className="ml-2">{section.title}</span>}
+                  </Link>
                 )}
               </li>
             )
@@ -160,9 +179,18 @@ const Sidebar = () => {
       </div>
 
       {/* Collapse Button */}
-      <div className="hover:bg-[#0d3164] px-2 py-2 rounded flex items-center cursor-pointer">
-        <FaChevronLeft className="mr-2" />
-        Collapse
+      <div
+        onClick={() => setCollapsed(!collapsed)}
+        className="hover:bg-[#0d3164] px-2 py-2 rounded flex items-center cursor-pointer"
+      >
+        {collapsed ? (
+          <FaChevronRight className="mx-auto" />
+        ) : (
+          <>
+            <FaChevronLeft className="mr-2" />
+            Collapse
+          </>
+        )}
       </div>
     </aside>
   )
