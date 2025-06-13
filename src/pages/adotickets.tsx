@@ -54,7 +54,10 @@ const AdoTickets = () => {
       <Topbar />
       <div className=" p-4">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold">ADO Tickets</h2>
+          {/* <h2 className="text-xl font-bold">ADO Tickets</h2> */}
+          <div>
+
+          </div>
 
           <div className="flex gap-2">
             <input
@@ -72,73 +75,80 @@ const AdoTickets = () => {
           </div>
         </div>
 
-        <table className="w-full border border-gray-300 text-sm">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="border px-2 py-2">Ticket</th>
-              <th className="border px-2 py-2">Title</th>
-              <th className="border px-2 py-2">State</th>
-              <th className="border px-2 py-2">FFR/FFP</th>
-              <th className="border px-2 py-2">PART</th>
-              <th className="border px-2 py-2">Assignee</th>
-              <th className="border px-2 py-2">Iteration</th>
-              <th className="border px-2 py-2">Tags</th>
-              <th className="border px-2 py-2">Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            {paginatedTickets.map((ticket) => (
-              <tr key={ticket.ticketId} className="hover:bg-gray-50">
-                <td className="border px-2 py-1">{ticket.ticketId}</td>
-                <td className="border px-2 py-1">{ticket.title}</td>
-                <td className="border px-2 py-1">{ticket.state}</td>
-                <td className="border px-2 py-1">{ticket.ffr_ffp || '-'}</td>
-                <td className="border px-2 py-1">{ticket.part || '-'}</td>
-                <td className="border px-2 py-1">{ticket.assignedTo}</td>
-                <td className="border px-2 py-1">{ticket.iterationPath}</td>
-                <td className="border px-2 py-1">{ticket.tags || '-'}</td>
-                <td className="border px-2 py-1">{ticket.workItemType}</td>
+        <div className="overflow-x-auto shadow rounded-lg border border-gray-200">
+          <table className="min-w-full text-sm text-left text-gray-700">
+            <thead className="bg-gray-300 text-xs uppercase text-gray-600 sticky top-0 z-10">
+              <tr>
+                <th className="px-4 py-3">Ticket</th>
+                <th className="px-4 py-3">Title</th>
+                <th className="px-4 py-3">State</th>
+                <th className="px-4 py-3">FFR/FFP</th>
+                <th className="px-4 py-3">PART</th>
+                <th className="px-4 py-3">Assignee</th>
+                <th className="px-4 py-3">Iteration</th>
+                <th className="px-4 py-3">Tags</th>
+                <th className="px-4 py-3">Type</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-200 bg-white">
+              {paginatedTickets.map((ticket) => (
+                <tr key={ticket.ticketId} className="hover:bg-gray-50 transition">
+                  <td className="px-4 py-2">{ticket.ticketId}</td>
+                  <td className="px-4 py-2">{ticket.title}</td>
+                  <td className="px-4 py-2">{ticket.state}</td>
+                  <td className="px-4 py-2">{ticket.ffr_ffp || '-'}</td>
+                  <td className="px-4 py-2">{ticket.part || '-'}</td>
+                  <td className="px-4 py-2">{ticket.assignedTo}</td>
+                  <td className="px-4 py-2">{ticket.iterationPath}</td>
+                  <td className="px-4 py-2">{ticket.tags || '-'}</td>
+                  <td className="px-4 py-2">{ticket.workItemType}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="flex justify-end items-center m-2 text-sm gap-4">
+            <div className="flex items-center gap-2">
+              <label htmlFor="rowsPerPage" className="font-medium">Items per page:</label>
+              <select
+                id="rowsPerPage"
+                value={rowsPerPage}
+                onChange={(e) => {
+                  setPage(1);
+                  setRowsPerPage(Number(e.target.value));
+                }}
+                className="border rounded px-2 py-1 text-sm"
+              >
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+              </select>
+            </div>
 
-        <div className="flex justify-end items-center mt-4 text-sm gap-4">
-          <div className="flex items-center gap-2">
-            <label htmlFor="rowsPerPage">Items per page:</label>
-            <select
-              id="rowsPerPage"
-              value={rowsPerPage}
-              onChange={(e) => {
-                setPage(1);
-                setRowsPerPage(Number(e.target.value));
-              }}
-              className="border rounded px-2 py-1">
-              <option value={5}>5</option>
-              <option value={10}>10</option>
-              <option value={25}>25</option>
-              <option value={50}>50</option>
-            </select>
-          </div>
+            <div className="text-gray-600">
+              {Math.min((page - 1) * rowsPerPage + 1, filteredTickets.length)} –
+              {Math.min(page * rowsPerPage, filteredTickets.length)} of {filteredTickets.length}
+            </div>
 
-          <div>
-            {` ${Math.min((page - 1) * rowsPerPage + 1, filteredTickets.length)} – ${Math.min(
-              page * rowsPerPage,
-              filteredTickets.length
-            )} of ${filteredTickets.length}`}
-          </div>
-
-          <div className="space-x-2">
-            <button
-              className="px-2 py-1 border rounded"
-              disabled={page === 1}
-              onClick={() => setPage(page - 1)} > ◀
-            </button>
-            <button
-              className="px-2 py-1 border rounded"
-              disabled={page === totalPages}
-              onClick={() => setPage(page + 1)} > ▶
-            </button>
+            <div className="flex gap-2">
+              <button
+                className={`px-3 py-1 rounded border text-sm font-medium ${page === 1 ? 'bg-gray-200 text-gray-500 cursor-not-allowed' : 'bg-white hover:bg-gray-100'}`}
+                disabled={page === 1}
+                onClick={() => setPage(page - 1)}
+              >
+                {'<'}
+              </button>
+              <span className="self-center font-medium text-gray-700">
+                Page {page} of {totalPages}
+              </span>
+              <button
+                className={`px-3 py-1 rounded border text-sm font-medium ${page === totalPages ? 'bg-gray-200 text-gray-500 cursor-not-allowed' : 'bg-white hover:bg-gray-100'}`}
+                disabled={page === totalPages}
+                onClick={() => setPage(page + 1)}
+              >
+                {'>'}
+              </button>
+            </div>
           </div>
         </div>
       </div>
