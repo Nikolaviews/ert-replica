@@ -8,8 +8,8 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     <div className="flex h-screen bg-gray-100">
       <Sidebar />
       <div className="flex flex-col flex-1">
-        <Topbar />
-        <main className="p-4 overflow-y-auto">{children}</main>
+
+        <main className=" overflow-y-auto">{children}</main>
       </div>
     </div>
   );
