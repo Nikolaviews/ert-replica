@@ -1,12 +1,12 @@
 import SummaryCard from '@/components/cards/SummaryCard';
 import { Clock, LineChart, BarChart, DollarSign } from 'lucide-react';
 import TabbedSection from '@/components/shared/TabbedSection';
-import Topbar from '@/layouts/Topbar';
+import Header from '@/layout/Header';
 
 const Dashboard = () => {
     return (
          <>
-    <Topbar/>
+    <Header/>
         <div className= "p-4">
             {/* Summary Cards */}
             <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-3">

@@ -1,8 +1,10 @@
+'use client';
+
 import { Tab } from '@headlessui/react';
 import classNames from 'classnames';
 import { Fragment } from 'react';
 import FFPFFRChart from '@/components/charts/FFPFFRChart';
-import ResourceDetails from '@/features/dashboard/components/ResourceDetails';
+import ResourceDetails from '@/modules/dashboard/components/ResourceDetails';
 
 const tabData = [
     { title: 'FFP / FFR', content: <FFPFFRChart /> },

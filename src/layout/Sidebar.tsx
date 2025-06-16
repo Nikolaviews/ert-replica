@@ -20,9 +20,9 @@ const menuData = [
     icon: <FaTachometerAlt />,
     collapsible: true,
     items: [
-      { title: 'Dashboard', icon: <FaUsers />, path: '/dashboard' },
-      { title: 'Job Codes', icon: <FaBars />, path: '/job-code' },
-      { title: 'Time Entries', icon: <FaClock />, path: '/time-entries' }
+      { title: 'Dashboard', icon: <FaUsers />, path: '/t-sheets/dashboard' },
+      { title: 'Job Codes', icon: <FaBars />, path: '/t-sheets/job-codes' },
+      { title: 'Time Entries', icon: <FaClock />, path: '/t-sheets/time-entries' }
     ]
   },
   {

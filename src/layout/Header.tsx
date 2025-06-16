@@ -21,7 +21,7 @@ const pathTitleMap: { [key: string]: string } = {
   '/daily-status': 'Daily Status',
 }
 
-const Topbar = () => {
+const Header = () => {
   const pathname = usePathname()
   const [title, setTitle] = useState('')
 
@@ -38,4 +38,4 @@ const Topbar = () => {
   )
 }
 
-export default Topbar
+export default Header

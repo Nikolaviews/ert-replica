@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react'
 import jobCode from '@/data/jobcodes-mockdata.json'
 

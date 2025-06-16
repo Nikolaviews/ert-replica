@@ -1,3 +1,5 @@
+'use client';
+
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 // A refined color palette for better visual separation and appeal

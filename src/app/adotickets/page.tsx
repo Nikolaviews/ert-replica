@@ -1,4 +1,5 @@
-import Topbar from '@/layouts/Topbar';
+'use client';
+import Header from '@/layout/Header';
 import React, { useEffect, useState } from 'react';
 
 interface Ticket {
@@ -51,7 +52,7 @@ const AdoTickets = () => {
 
   return (
     <>
-      <Topbar />
+      <Header />
       <div className=" p-4">
         <div className="flex justify-between items-center mb-4">
           {/* <h2 className="text-xl font-bold">ADO Tickets</h2> */}

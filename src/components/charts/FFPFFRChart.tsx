@@ -1,3 +1,5 @@
+'use client';
+
 import HorizontalBarChart from './HorizontalBarChart';
 import VerticalBarChart from './VerticalBarChart';
 import NoDataChart from './NoDataChart';
