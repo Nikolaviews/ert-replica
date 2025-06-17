@@ -52,14 +52,15 @@ const AdoTickets = () => {
 
   return (
     <>
-      <Header />
+      <Header title='ADO Tickets'
+        onPrimaryActionClick={() => console.log('azure')}
+        primaryActionLabel="Azure DevOps"
+        onExportClick={() => console.log('Exporting')}
+        onFilterChange={(t) => setSearchText(t)}
+        showFilter={true} />
+
       <div className=" p-4">
-        <div className="flex justify-between items-center mb-4">
-          {/* <h2 className="text-xl font-bold">ADO Tickets</h2> */}
-          <div>
-
-          </div>
-
+        {/* <div className="flex justify-between items-center mb-4">
           <div className="flex gap-2">
             <input
               type="text"
@@ -74,7 +75,7 @@ const AdoTickets = () => {
               Azure DevOps
             </button>
           </div>
-        </div>
+        </div> */}
 
         <div className="overflow-x-auto shadow rounded-lg border border-gray-200">
           <table className="min-w-full text-sm text-left text-gray-700">
