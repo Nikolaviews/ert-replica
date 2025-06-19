@@ -11,7 +11,7 @@ type JobCode = {
   isCategoryHeader?: boolean;
 }
 
-export const Page = () => {
+export default function JobCodesPage() {
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -101,4 +101,3 @@ export const Page = () => {
     </div>
   );
 };
-export default Page;
