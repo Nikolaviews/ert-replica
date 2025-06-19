@@ -11,7 +11,7 @@ type JobCode = {
   isCategoryHeader?: boolean;
 }
 
-export const page = () => {
+export const Page = () => {
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -26,7 +26,7 @@ export const page = () => {
   useEffect(() => {
     console.log('jobCodes', jobCode);
     data.forEach((item) => console.log(item.category));
-  }, []);
+  }, [data]);
 
 
   return (
@@ -101,4 +101,4 @@ export const page = () => {
     </div>
   );
 };
-export default page;
+export default Page;

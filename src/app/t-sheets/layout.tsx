@@ -1,10 +1,10 @@
 import React from 'react'
 
-const layout = ({children}: any) => {
+const layout = ({ children }: React.PropsWithChildren<object>) => {
   return (
     <>
-   <nav></nav>
-    {children}
+      <nav></nav>
+      {children}
     </>
   )
 }

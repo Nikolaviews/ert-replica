@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default function Error({ error, reset }: { error: Error; reset: () => void }) {
+export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 py-12 text-gray-600">
       <h1 className="text-5xl font-bold text-gray-800 mb-4">500</h1>
